@@ -6,7 +6,7 @@ XSERVER = "xserver-xorg \
            xf86-input-keyboard"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-sunxi"
-PREFERRED_VERSION_linux-libc-headers = "3.4.67"
+PREFERRED_VERSION_linux-libc-headers = "3.4.75"
 
 KERNEL_IMAGETYPE = "uImage"
 
