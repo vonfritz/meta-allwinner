@@ -10,7 +10,12 @@ PREFERRED_VERSION_linux-libc-headers = "3.4.75"
 
 KERNEL_IMAGETYPE = "uImage"
 
-SPL_BINARY = "sunxi-spl.bin"
+UBOOT_ENTRYPOINT = "0x40008000"
+UBOOT_LOADADDRESS = "0x40008000"
+UBOOT_BINARY = "u-boot-sunxi-with-spl.${UBOOT_SUFFIX}"
+UBOOT_SYMLINK = "u-boot-sunxi-with-spl-${MACHINE}.${UBOOT_SUFFIX}"
+
+SERIAL_CONSOLE = "115200 ttyS0"
 
 IMAGE_CLASSES += "sdcard_image-sunxi"
 IMAGE_FSTYPES += "ext3 tar.gz sunxi-sdimg"
