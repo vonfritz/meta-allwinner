@@ -6,7 +6,7 @@ KERNEL_IMAGETYPE = "uImage"
 
 COMPATIBLE_MACHINE = "(mele|meleg|olinuxino-a13|olinuxino-a10s|olinuxino-a20|cubieboard|cubieboard2|cubietruck)"
 
-PR = "1"
+PR = "2"
 
 PV = "3.4.75-r0"
 
@@ -14,11 +14,12 @@ MACHINE_KERNEL_PR_append = "a"
 
 SRC_URI += "https://github.com/linux-sunxi/linux-sunxi/archive/sunxi-v${PV}.tar.gz \
         file://defconfig \
+        file://0010-support-for-dvbsky-usb-receiver.patch \
         "
 
 SRC_URI[md5sum] = "cdc505ba7e9f3447b43c16ff09fc37a1"
 
-S = "${WORKDIR}/git"
+S = "${WORKDIR}/${PN}-sunxi-v${PV}"
 
 #fix QA issue "Files/directories were installed but not shipped: /usr/src/debug"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"

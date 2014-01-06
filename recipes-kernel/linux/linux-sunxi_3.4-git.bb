@@ -6,9 +6,9 @@ KERNEL_IMAGETYPE = "uImage"
 
 COMPATIBLE_MACHINE = "(mele|meleg|olinuxino-a13|olinuxino-a10s|olinuxino-a20|cubieboard|cubieboard2|cubietruck)"
 
-PR = "1"
+PR = "2"
 
-PV = "3.4.75"
+PV = "3.4.75-git"
 # Last tested version by myself"
 SRCREV_pn-${PN} = "9cfbbed3b2b098774b04553843d2f4092b8f7fe8"
 
@@ -16,6 +16,7 @@ MACHINE_KERNEL_PR_append = "a"
 
 SRC_URI += "git://github.com/linux-sunxi/linux-sunxi.git;branch=sunxi-3.4;protocol=git \
         file://defconfig \
+        file://0010-support-for-dvbsky-usb-receiver.patch \
         "
 
 S = "${WORKDIR}/git"
