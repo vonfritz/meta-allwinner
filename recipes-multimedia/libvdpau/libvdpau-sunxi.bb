@@ -1,13 +1,13 @@
 DESCRIPTION = "Experimental VDPAU for Allwinner sunxi SoCs"
 
-PR = "1"
+PR = "2"
 
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://decoder.c;beginline=1;endline=18;md5=d272116b63ed2796aab264c467da62b1"
 DEPENDS = "libvdpau"
 SRC_URI = "git://github.com/linux-sunxi/libvdpau-sunxi.git;protocol=http;branch=master"
 
-SRCREV_pn-${PN} = "bf1e9fb48f8b68ecb7662c5a28ad78dc964c5b44"
+SRCREV_pn-${PN} = "e6b5f5976419b3b99e270ed4ab595dcbf4eae0c8"
 S = "${WORKDIR}/git"
 
 FILES_${PN} = "${libdir}/*"
