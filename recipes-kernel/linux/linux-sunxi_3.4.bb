@@ -6,11 +6,9 @@ KERNEL_IMAGETYPE = "uImage"
 
 COMPATIBLE_MACHINE = "(mele|meleg|olinuxino-a13|olinuxino-a10s|olinuxino-a20|cubieboard|cubieboard2|cubietruck)"
 
-PR = "2"
-
-PV = "3.4.75-git"
+PV = "3.4.79"
 # Last tested version by myself"
-SRCREV_pn-${PN} = "9cfbbed3b2b098774b04553843d2f4092b8f7fe8"
+SRCREV_pn-${PN} = "8ea347bcb4b4a5e50ec0343afac579e933ce8402"
 
 MACHINE_KERNEL_PR_append = "a"
 
