@@ -1,0 +1,25 @@
+From df8dff455368024d4ff18aa5d661424e457b350c Mon Sep 17 00:00:00 2001
+From: Marco Franceschetti <vonfritz1@gmail.com>
+Date: Sat, 22 Mar 2014 23:13:01 +0100
+Subject: [PATCH] add link to X11-lib in Makefile
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index a44c17a..33b3369 100644
+--- a/Makefile
++++ b/Makefile
+@@ -26,7 +26,7 @@ endif
+ 
+ all: $(TARGET)
+ $(TARGET): $(OBJ)
+-	$(CC) $(LIB_LDFLAGS) $(LDFLAGS) $(OBJ) $(LIBS) -o $@
++	$(CC) $(LIB_LDFLAGS) $(LDFLAGS) $(OBJ) $(LIBS) -lX11 -o $@
+ 
+ clean:
+ 	rm -f $(OBJ)
+-- 
+1.8.2.2
+
