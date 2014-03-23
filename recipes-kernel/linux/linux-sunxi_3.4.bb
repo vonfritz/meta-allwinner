@@ -14,7 +14,8 @@ MACHINE_KERNEL_PR_append = "a"
 
 SRC_URI += "git://github.com/linux-sunxi/linux-sunxi.git;branch=sunxi-3.4;protocol=git \
         file://defconfig \
-        file://0010-support-for-dvbsky-usb-receiver.patch \
+        file://0001-support-for-dvbsky-usb-receiver.patch \
+        file://0002-if-zero-sized-surface.patch \
         "
 
 S = "${WORKDIR}/git"

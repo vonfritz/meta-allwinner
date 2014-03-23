@@ -1,0 +1,56 @@
+From 123c36886b035a254cc8953aef210bd276d204c9 Mon Sep 17 00:00:00 2001
+From: Jens Kuske <jenskuske@gmail.com>
+Date: Sat, 22 Mar 2014 18:44:00 +0100
+Subject: [PATCH] if zero-sized surface
+
+---
+ drivers/char/sunxi_g2d/g2d.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/char/sunxi_g2d/g2d.c b/drivers/char/sunxi_g2d/g2d.c
+index 7982a54..b886112 100644
+--- a/drivers/char/sunxi_g2d/g2d.c
++++ b/drivers/char/sunxi_g2d/g2d.c
+@@ -119,7 +119,7 @@ int g2d_exit(void)
+ 
+ int g2d_wait_cmd_finish(void)
+ {
+-	long timeout = 50; /* 30ms */
++	long timeout = 50; /* 30ms */
+ 
+ 	timeout = wait_event_timeout(g2d_ext_hd.queue, g2d_ext_hd.finish_flag == 1, msecs_to_jiffies(timeout));
+ 	if(timeout == 0)
+@@ -138,7 +138,8 @@ int g2d_blit(g2d_blt * para)
+ 	__s32 err = 0;
+ 
+ 	/* check the parameter valid */
+-    if(((para->src_rect.x < 0)&&((-para->src_rect.x) > para->src_rect.w)) ||
++    if(para->src_rect.w == 0 || para->src_rect.h == 0 ||
++       ((para->src_rect.x < 0)&&((-para->src_rect.x) > para->src_rect.w)) ||
+        ((para->src_rect.y < 0)&&((-para->src_rect.y) > para->src_rect.h)) ||
+        ((para->dst_x < 0)&&((-para->dst_x) > para->src_rect.w)) ||
+        ((para->dst_y < 0)&&((-para->dst_y) > para->src_rect.h)) ||
+@@ -204,7 +205,8 @@ int g2d_fill(g2d_fillrect * para)
+ 	__s32 err = 0;
+ 
+ 	/* check the parameter valid */
+-	if(((para->dst_rect.x < 0)&&((-para->dst_rect.x)>para->dst_rect.w)) ||
++	if(para->dst_rect.w == 0 || para->dst_rect.h == 0 ||
++	   ((para->dst_rect.x < 0)&&((-para->dst_rect.x)>para->dst_rect.w)) ||
+ 	   ((para->dst_rect.y < 0)&&((-para->dst_rect.y)>para->dst_rect.h)) ||
+ 	   ((para->dst_rect.x > 0)&&(para->dst_rect.x > para->dst_image.w - 1)) ||
+ 	   ((para->dst_rect.y > 0)&&(para->dst_rect.y > para->dst_image.h - 1)))
+@@ -245,7 +247,9 @@ int g2d_stretchblit(g2d_stretchblt * para)
+ 	__s32 err = 0;
+ 
+ 	/* check the parameter valid */
+-    if(((para->src_rect.x < 0)&&((-para->src_rect.x) > para->src_rect.w)) ||
++    if(para->src_rect.w == 0 || para->src_rect.h == 0 ||
++       para->dst_rect.w == 0 || para->dst_rect.h == 0 ||
++       ((para->src_rect.x < 0)&&((-para->src_rect.x) > para->src_rect.w)) ||
+        ((para->src_rect.y < 0)&&((-para->src_rect.y) > para->src_rect.h)) ||
+        ((para->dst_rect.x < 0)&&((-para->dst_rect.x) > para->dst_rect.w)) ||
+        ((para->dst_rect.y < 0)&&((-para->dst_rect.y) > para->dst_rect.h)) ||
+-- 
+1.8.5.2
+
