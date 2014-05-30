@@ -5,11 +5,11 @@ LICENSE = "CC0-1.0"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=0ceb3372c9595f0a8067e55da801e4a1"
 DEPENDS = "sunxi-tools-native"
 PV = "1.1+git${SRCPV}"
-PR = "r0"
+PR = "r1"
 
 SRC_URI = "git://github.com/linux-sunxi/sunxi-boards.git;protocol=git"
 # Increase PV with SRCREV change
-SRCREV = "5e63e3da42254d3c23eb6436a03ed1d32fb11e98"
+SRCREV = "9a302496cad5d0cbf4ea4f7c456cc3f47c36dbea"
 
 S = "${WORKDIR}/git"
 SUNXI_FEX_FILE_mele = "sys_config/a10/mele_a1000.fex"
